@@ -2,20 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello/hello.component';
-import { ProductComponent } from './product/product.component';
 import { Validation } from './app.validation';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 import {CalendarModule} from 'primeng/primeng';
-
-
-
-
 
 
 @NgModule({

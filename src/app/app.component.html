@@ -10,10 +10,9 @@
   <div class="form-group">
     <label class="control-label col-sm-6" >Number Should between 5 to 15:</label>
     <div class="col-sm-6">
-     <input type="text" pInputText formControlName="MinMaxNumber" />
+     <input type="text"   pInputText formControlName="MinMaxNumber" />
     
-
-
+{{Productfilert}}
 
       <div class="Error"    *ngIf="rForm.get('MinMaxNumber').errors && rForm.get('MinMaxNumber').dirty">
 
@@ -44,9 +43,11 @@
     <div class="form-group">
     <label class="control-label col-sm-6">Available only between From 05-01-2017 To 05-10-2017</label>
     <div class="col-sm-6"> 
-      <p-calendar dateFormat="mm/dd/yy"  showIcon="true" [minDate]="mins" placeholder="From"   formControlName="FromDate"></p-calendar>
+      <p-calendar dateFormat="mm/dd/yy" [(ngModel)]="FromDateInput"    showIcon="true" [minDate]="mins" placeholder="From"   formControlName="FromDate"></p-calendar>
       <br>
-      <p-calendar dateFormat="mm/dd/yy"  showIcon="true" [minDate]="mins"  placeholder="To"   formControlName="ToDate"></p-calendar>
+      <br>
+      
+      <p-calendar dateFormat="mm/dd/yy"  showIcon="true"  placeholder="To" [minDate]="FromDateInput"   formControlName="ToDate"></p-calendar>
       
       <div class='Error' *ngIf="!rForm.get('FromDate').errors && rForm.get('FromDate').dirty || !rForm.get('ToDate').errors && rForm.get('ToDate').dirty">
       Out Of Range

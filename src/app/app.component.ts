@@ -8,15 +8,16 @@ import { Validation } from './app.validation';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-rForm: FormGroup;
-MinMaxNumber: number;
-post:any;
-date1: Date;
-FromDate: Date;
-ToDate: Date;
-mins: Date = new Date("05-02-2017");
 
+export class AppComponent {
+  rForm: FormGroup;
+  MinMaxNumber: number;
+  post:any;
+  date1: Date;
+  FromDate: Date;
+  ToDate: Date;
+  mins: Date = new Date("05-02-2017");
+  FromDateInput: Date;
 
 
  constructor(private fb : FormBuilder){
@@ -36,5 +37,6 @@ mins: Date = new Date("05-02-2017");
  }
 
  ngonInit(){
+
  }
 }
