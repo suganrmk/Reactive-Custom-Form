@@ -1,3 +1,90 @@
-<h1>
-  {{title}}
-</h1>
+
+<div class="container">
+
+
+
+  <div class="col-md-12">
+    <h2>Custom Reactive Form</h2>
+    
+<form  [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)" class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-6" >Number Should between 5 to 15:</label>
+    <div class="col-sm-6">
+     <input type="text" pInputText formControlName="MinMaxNumber" />
+    
+
+
+
+      <div class="Error"    *ngIf="rForm.get('MinMaxNumber').errors && rForm.get('MinMaxNumber').dirty">
+
+  <p *ngIf="rForm.get('MinMaxNumber').errors.minValue"> Number Range Should Be between 5 to 15 </p>
+</div>
+
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-6">  Date Should between 04-01-2017 to 06-01-2017</label>
+    <div class="col-sm-6"> 
+      <p-calendar dateFormat="mm/dd/yy"  showIcon="true"   formControlName="date1"></p-calendar>
+      <div class='Error' *ngIf="!rForm.get('date1').errors && rForm.get('date1').dirty">
+      Select between 04-01-2017 to 06-01-2017
+      </div>
+
+    
+
+
+
+
+    </div>
+  </div>
+
+
+
+    <div class="form-group">
+    <label class="control-label col-sm-6">Available only between From 05-01-2017 To 05-10-2017</label>
+    <div class="col-sm-6"> 
+      <p-calendar dateFormat="mm/dd/yy"  showIcon="true" [minDate]="mins" placeholder="From"   formControlName="FromDate"></p-calendar>
+      <br>
+      <p-calendar dateFormat="mm/dd/yy"  showIcon="true" [minDate]="mins"  placeholder="To"   formControlName="ToDate"></p-calendar>
+      
+      <div class='Error' *ngIf="!rForm.get('FromDate').errors && rForm.get('FromDate').dirty || !rForm.get('ToDate').errors && rForm.get('ToDate').dirty">
+      Out Of Range
+      </div>
+
+    
+
+
+
+
+    </div>
+  </div>
+
+
+
+   <div class="form-group">
+    <label class="control-label col-sm-6"> Enter the websiteUrl with "https" at the start and "IO " at the end</label>
+    <div class="col-sm-6"> 
+      <input type="text"  ngModel  formControlName="websiteUrl"/>
+      <div *ngIf="rForm.get('websiteUrl').errors &&
+            rForm.get('websiteUrl').dirty &&
+            rForm.get('websiteUrl').errors.validUrl">
+        Oops, only urls served over https and only from the .io top-level domain are accepted.
+        Talk about restrictions!
+      </div>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <div class="col-sm-offset-6 col-sm-6">
+            <input type="submit" class="btn btn-default"  value="Submit Form" [disabled]="!rForm.valid">
+    </div>
+  </div>
+</form>
+
+
+    </div>
+
+
+
+  
+</div>
